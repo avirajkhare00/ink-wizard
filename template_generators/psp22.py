@@ -1,34 +1,15 @@
-from jinja2 import Environment, FileSystemLoader
-from jinja2.environment import Template
-import os
+from .base import Base
 
 
-class PSP22:
-    def __init__(self) -> None:
-        self.dir_name = ''
-
-    def _create_dir(self, dir_name: str) -> None:
-        self.dir_name = dir_name
-        os.mkdir(dir_name)
-
-    def _write_file(self, file_name: str, content: str) -> None:
-        f = open(self.dir_name + '/' + file_name, "w")
-        f.write(content)
-        f.close()
-
-    def _template(self, template_name) -> Template:
-        environment = Environment(loader=FileSystemLoader("templates/psp22/"))
-        return environment.get_template(template_name)
-
-    def _render_content(self, template: Template, **kwargs) -> str:
-        return template.render(**kwargs)
+class PSP22(Base):
 
     @classmethod
     def generate_code(cls, **kwargs) -> None:
+        super().generate_code()
         cls._create_dir(cls, "psp22")
-        template = cls._template(cls, "psp22.txt")
+        template = cls._template(cls, "templates/psp22", "psp22.txt")
         content = cls._render_content(cls, template, **kwargs)
         cls._write_file(cls, "lib.rs", content)
-        template = cls._template(cls, "cargo.txt")
+        template = cls._template(cls, "templates/psp22", "cargo.txt")
         content = cls._render_content(cls, template, **kwargs)
         cls._write_file(cls, "Cargo.toml", content)
