@@ -1,31 +1,19 @@
 import typer
 
-from invoker import Invoker
+from commands.template_select import TemplateSelect
+from commands.flipper import FlipperCommand
+from commands.psp22 import PSP22Command
 
 def main() -> None:
     
-    print("Welcome to Ink Wizard!")
-    print("Type 1 to scaffold flipper contract")
-    print("Type 2 to scaffold psp22 contract")
-    print("Type 3 to scaffold psp34 contract")
-    print("Type 4 to scaffold psp37 contract")
+    TemplateSelect.show_options()
 
-    contract_type = typer.prompt("Enter your choice to continue")
+    contract_type = TemplateSelect.ask_user()
 
     if contract_type == "1":
-        Invoker.flipper()
-        print("flipper scaffolded")
+        FlipperCommand.run_command()
     if contract_type == "2":
-        contract_name = typer.prompt("Please enter name of contract")
-        metadata = typer.confirm("Do you want to store Metadata?")
-        mintable = typer.confirm("Do you want it to be mintable?")
-        burnable = typer.confirm("Do you want it to be burnable?")
-        wrapper = typer.confirm("Do you want it to be wrapper?")
-        flashmint = typer.confirm("Do you want it to be flashmint?")
-        pausable = typer.confirm("Do you want it to be pausable?")
-        capped = typer.confirm("Do you want it to be capped?")
-        Invoker.psp22(contract_name=contract_name, mintable=mintable, metadata=metadata, burnable=burnable, wrapper=wrapper, flashmint=flashmint, pausable=pausable, capped=capped)
-        print("psp22 contract scaffolded")
+        PSP22Command.run_command()
 
 
 if __name__ == "__main__":

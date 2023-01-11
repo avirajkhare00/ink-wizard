@@ -7,7 +7,7 @@ class Invoker:
         pass
 
     @staticmethod
-    def flipper() -> None:
+    def flipper(**kwargs) -> None:
         Flipper.generate_code()
 
     @staticmethod
