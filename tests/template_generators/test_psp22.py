@@ -5,7 +5,7 @@ import os
 
 from template_generators.psp22 import PSP22
 
-class TestFlipper(unittest.TestCase):
+class TestPSP22(unittest.TestCase):
 
     def setUp(self) -> None:
         if os.path.isdir("psp22"):

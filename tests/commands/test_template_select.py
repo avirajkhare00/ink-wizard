@@ -2,7 +2,7 @@ import unittest
 from contextlib import redirect_stdout
 import io
 
-from commands.template_select import TemplateSelect
+from commands.template_select import TemplateSelectCommand
 
 class TestTemplateSelectCommand(unittest.TestCase):
 
@@ -15,7 +15,7 @@ class TestTemplateSelectCommand(unittest.TestCase):
     def test_show_option_command(self) -> None:
         f = io.StringIO()
         with redirect_stdout(f):
-            TemplateSelect.show_options()
+            TemplateSelectCommand.show_options()
         s = f.getvalue()
         
         assert "Type 1 to scaffold flipper contract\n" in s

@@ -17,5 +17,8 @@ class PSP22Command(Base):
         flashmint = cls.typer.confirm("Do you want it to be flashmint?")
         pausable = cls.typer.confirm("Do you want it to be pausable?")
         capped = cls.typer.confirm("Do you want it to be capped?")
-        PSP22.generate_code(contract_name=contract_name, mintable=mintable, metadata=metadata, burnable=burnable, wrapper=wrapper, flashmint=flashmint, pausable=pausable, capped=capped)
+        if metadata == False and mintable == False and burnable == False and wrapper == False and flashmint == False and pausable == False and capped == False:
+            PSP22.generate_code(contract_name=contract_name, basic=True)
+        else:
+            PSP22.generate_code(contract_name=contract_name, mintable=mintable, metadata=metadata, burnable=burnable, wrapper=wrapper, flashmint=flashmint, pausable=pausable, capped=capped)
         print("psp22 contract scaffolded")

@@ -1,6 +1,6 @@
 from .base import Base
 
-class TemplateSelect(Base):
+class TemplateSelectCommand(Base):
     
     def __init__(self) -> None:
         super().__init__()
