@@ -22,10 +22,4 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with unittest
         run: |
-          python -m unittest tests/template_generators/test_flipper.py
-          python -m unittest tests/template_generators/test_psp22.py
-          python -m unittest tests/template_generators/test_psp34.py
-          python -m unittest tests/commands/test_template_select.py
-          python -m unittest tests/commands/test_flipper.py
-          python -m unittest tests/commands/test_psp22.py
-          python -m unittest tests/commands/test_psp34.py
+          ./test.sh
