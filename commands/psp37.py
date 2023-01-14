@@ -10,7 +10,7 @@ class PSP37Command(Base):
     def run_command(cls, **kwargs) -> None:
         cls = cls()
         contract_name = cls.typer.prompt("Please enter name of contract")
-        batch = cls.typer.prompt("Do you want it to be batch?")
+        batch = cls.typer.confirm("Do you want it to be batch?")
         metadata = cls.typer.confirm("Do you want to store Metadata?")
         mintable = cls.typer.confirm("Do you want it to be mintable?")
         burnable = cls.typer.confirm("Do you want it to be burnable?")
@@ -19,4 +19,4 @@ class PSP37Command(Base):
             PSP37.generate_code(contract_name=contract_name, basic=True)
         else:
             PSP37.generate_code(contract_name=contract_name, batch=batch, mintable=mintable, metadata=metadata, burnable=burnable, enumrable=enumrable)
-        print("psp34 contract scaffolded")
+        print("psp37 contract scaffolded")
