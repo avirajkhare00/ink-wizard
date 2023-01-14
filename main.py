@@ -4,6 +4,7 @@ from commands.template_select import TemplateSelectCommand
 from commands.flipper import FlipperCommand
 from commands.psp22 import PSP22Command
 from commands.psp34 import PSP34Command
+from commands.psp37 import PSP37Command
 
 def main() -> None:
     
@@ -18,7 +19,7 @@ def main() -> None:
     if contract_type == "3":
         PSP34Command.run_command()
     if contract_type == "4":
-        pass
+        PSP37Command.run_command()
 
 
 if __name__ == "__main__":
