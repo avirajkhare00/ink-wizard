@@ -4,7 +4,7 @@ from contextlib import redirect_stdout
 import io
 import os
 
-from commands.flipper import FlipperCommand
+from ink_wizard.commands.flipper import FlipperCommand
 
 class TestFlipperCommand(unittest.TestCase):
 

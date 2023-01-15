@@ -16,6 +16,9 @@ class Base:
         f.write(content)
         f.close()
 
+    def _get_template_dir(self, dir_name) -> str:
+        return os.path.dirname(os.path.realpath(__file__)) + "/../templates/{}/".format(dir_name)
+
     def _template(self, template_dir: str, template_name: str) -> Template:
         environment = Environment(loader=FileSystemLoader(template_dir))
         return environment.get_template(template_name)

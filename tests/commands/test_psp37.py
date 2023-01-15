@@ -3,7 +3,7 @@ from unittest import mock
 import shutil
 import os
 
-from commands.psp37 import PSP37Command
+from ink_wizard.commands.psp37 import PSP37Command
 
 class TestPSP37Command(unittest.TestCase):
 

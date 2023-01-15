@@ -3,7 +3,7 @@ from unittest import mock
 import shutil
 import os
 
-from commands.psp22 import PSP22Command
+from ink_wizard.commands.psp22 import PSP22Command
 
 class TestPSP22Command(unittest.TestCase):
 

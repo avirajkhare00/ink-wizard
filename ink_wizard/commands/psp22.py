@@ -1,4 +1,4 @@
-from template_generators.psp22 import PSP22
+from ..template_generators.psp22 import PSP22
 from .base import Base
 
 class PSP22Command(Base):

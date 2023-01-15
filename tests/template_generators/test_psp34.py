@@ -3,7 +3,7 @@ import hashlib
 import shutil
 import os
 
-from template_generators.psp34 import PSP34
+from ink_wizard.template_generators.psp34 import PSP34
 
 class TestPSP34(unittest.TestCase):
 

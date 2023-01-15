@@ -2,7 +2,7 @@ import unittest
 from contextlib import redirect_stdout
 import io
 
-from commands.template_select import TemplateSelectCommand
+from ink_wizard.commands.template_select import TemplateSelectCommand
 
 class TestTemplateSelectCommand(unittest.TestCase):
 

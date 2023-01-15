@@ -3,7 +3,7 @@ import hashlib
 import shutil
 import os
 
-from template_generators.psp22 import PSP22
+from ink_wizard.template_generators.psp22 import PSP22
 
 class TestPSP22(unittest.TestCase):
 
