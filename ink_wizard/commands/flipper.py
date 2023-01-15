@@ -1,4 +1,4 @@
-from template_generators.flipper import Flipper
+from ..template_generators.flipper import Flipper
 from .base import Base
 
 class FlipperCommand(Base):

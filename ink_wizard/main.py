@@ -1,10 +1,10 @@
 import typer
 
-from ink_wizard.commands.template_select import TemplateSelectCommand
-from ink_wizard.commands.flipper import FlipperCommand
-from ink_wizard.commands.psp22 import PSP22Command
-from ink_wizard.commands.psp34 import PSP34Command
-from ink_wizard.commands.psp37 import PSP37Command
+from .commands.template_select import TemplateSelectCommand
+from .commands.flipper import FlipperCommand
+from .commands.psp22 import PSP22Command
+from .commands.psp34 import PSP34Command
+from .commands.psp37 import PSP37Command
 
 def main() -> None:
     

@@ -3,7 +3,7 @@ import hashlib
 import shutil
 import os
 
-from template_generators.flipper import Flipper
+from ink_wizard.template_generators.flipper import Flipper
 
 class TestFlipper(unittest.TestCase):
 
