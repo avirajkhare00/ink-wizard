@@ -10,4 +10,4 @@ RUN virtualenv .venv
 
 RUN ./.venv/bin/python -m pip install -r requirements.txt
 
-RUN ./test.sh
+CMD ["./test.sh"]
