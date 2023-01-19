@@ -12,6 +12,8 @@ pub mod my_psp22 {
     {% endif -%}
     {% if pausable -%}
     use openbrush::contracts::pausable::*;
+    {% endif -%}
+    {% if capped or pausable -%}
     use openbrush::contracts::psp22::Transfer;
     {% endif -%}
     use openbrush::traits::Storage;
@@ -49,7 +51,6 @@ pub mod my_psp22 {
 		pausable: pausable::Data,
         {% endif -%}
         {% if capped -%}
-        #[storage_field]
         cap: Balance,
         {% endif %}
     }
@@ -75,7 +76,7 @@ pub mod my_psp22 {
     impl Pausable for {{contract_name}} {}
     {% endif %}
     {% if pausable and not capped %}
-    impl Transfer for Contract {
+    impl Transfer for {{contract_name}} {
 		#[openbrush::modifiers(when_not_paused)]
 		fn _before_token_transfer(
             &mut self,
@@ -85,8 +86,23 @@ pub mod my_psp22 {
         ) -> Result<(), PSP22Error> {}
 	}
     {% endif -%}
-    {% if capped -%}
-    impl Transfer for Contract {
+    {% if capped and not pausable -%}
+    impl Transfer for {{contract_name}} {
+		fn _before_token_transfer(
+            &mut self,
+            _from: Option<&AccountId>,
+			_to: Option<&AccountId>,
+			_amount: &Balance
+        ) -> Result<(), PSP22Error> {
+			if _from.is_none() && (self.total_supply() + _amount) > self.cap() {
+                return Err(PSP22Error::Custom(String::from("Cap exceeded")))
+            }
+            Ok(())
+		}
+	}
+    {% endif -%}
+    {% if capped and pausable -%}
+    impl Transfer for {{contract_name}} {
 		#[openbrush::modifiers(when_not_paused)]
 		fn _before_token_transfer(
             &mut self,
@@ -116,7 +132,6 @@ pub mod my_psp22 {
 
     {% if pausable -%}
         #[ink(message)]
-		#[openbrush::modifiers(only_role(MANAGER))]
 		pub fn change_state(&mut self) -> Result<(), PSP22Error> {
 			if self.paused() {
                 self._unpause()
