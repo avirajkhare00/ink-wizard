@@ -26,7 +26,7 @@ class TestPSP34(unittest.TestCase):
         contract = open("psp34/lib.rs", "rb")
         toml = open("psp34/Cargo.toml", "rb")
         self.assertEqual(hashlib.md5(contract.read()).hexdigest(), "233532e6dacb8959b84a83e56c6405d8")
-        self.assertEqual(hashlib.md5(toml.read()).hexdigest(), "a855b502f79366206e5010ec996f24a8")
+        self.assertEqual(hashlib.md5(toml.read()).hexdigest(), "3cb7bb6a7a5e8ed421945d43a8526929")
         contract.close()
         toml.close()
 
@@ -37,6 +37,6 @@ class TestPSP34(unittest.TestCase):
         contract = open("psp34/lib.rs", "rb")
         toml = open("psp34/Cargo.toml", "rb")
         self.assertEqual(hashlib.md5(contract.read()).hexdigest(), "ecaf4f0db0b23a88a224f0aae3ba3415")
-        self.assertEqual(hashlib.md5(toml.read()).hexdigest(), "a855b502f79366206e5010ec996f24a8")
+        self.assertEqual(hashlib.md5(toml.read()).hexdigest(), "3cb7bb6a7a5e8ed421945d43a8526929")
         contract.close()
         toml.close()

@@ -26,7 +26,7 @@ class TestPSP22(unittest.TestCase):
         contract = open("psp22/lib.rs", "rb")
         toml = open("psp22/Cargo.toml", "rb")
         self.assertEqual(hashlib.md5(contract.read()).hexdigest(), "a29268c2aa91933d5f82a0b72b96cac7")
-        self.assertEqual(hashlib.md5(toml.read()).hexdigest(), "d2f66e3c6ea2929e35e7f4bce83589f4")
+        self.assertEqual(hashlib.md5(toml.read()).hexdigest(), "3d3d79fa04b324b4f3489422b39c66cd")
         contract.close()
         toml.close()
 
@@ -36,7 +36,7 @@ class TestPSP22(unittest.TestCase):
         PSP22.generate_code(contract_name="MyToken", metadata=True, mintable=True, burnable=True, wrapper=True, flashmint=True, pausable=True, capped=True)
         contract = open("psp22/lib.rs", "rb")
         toml = open("psp22/Cargo.toml", "rb")
-        self.assertEqual(hashlib.md5(contract.read()).hexdigest(), "0f493c3aa881ba46635ebde775420eb2")
-        self.assertEqual(hashlib.md5(toml.read()).hexdigest(), "d2f66e3c6ea2929e35e7f4bce83589f4")
+        self.assertEqual(hashlib.md5(contract.read()).hexdigest(), "0f13603bde7c85a2beba89d5c0cec4aa")
+        self.assertEqual(hashlib.md5(toml.read()).hexdigest(), "3d3d79fa04b324b4f3489422b39c66cd")
         contract.close()
         toml.close()
