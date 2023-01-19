@@ -25,6 +25,15 @@ brew install ink-wizard
 
 Just type `ink-wizard`, you are good to go.
 
+# Usage
+
+In order to use ink-wizard, you should have `cargo-contract` installed. Run the following command to install it:
+```sh
+cargo install cargo-contract --version 2.0.0-beta
+```
+
+When a smart contract is scaffolded, you can go to the directory and can run `cargo-contract contract build`. It will generate .contract, wasm and metadata.json file that you can use.
+
 # Testing
 
 You can test it either via running `./test.sh` file or you can run tests inside a docker container via `docker build .`
